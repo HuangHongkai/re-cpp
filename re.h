@@ -5,8 +5,6 @@
 #include <set>
 #include <stdexcept>
 
-using namespace std;
-
 /**
  * match为正则表达式匹配测试函数，info存储上一个状态的部分信息
  * @param re_exp 正则表达式，例如123*
@@ -20,7 +18,8 @@ struct info {
     bool flag1; // 存储 + 标志位信息
 };
 
-bool match(const string& re_exp, const string& str, size_t i, size_t j, info* last_info = nullptr) {
+bool match(const std::string& re_exp, const std::string& str, size_t i, size_t j, info* last_info = nullptr) {
+    using namespace std;
     size_t len1 = re_exp.size(), len2 = str.size();
     if(i==len1 && j!=len2) return false;
     if(i==len1 && j==len2) return true;
